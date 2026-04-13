@@ -3,7 +3,7 @@ import call from '../assets/call.png';
 const Timeline = () => {
     return (
         <div className='min-h-screen max-w-325 mx-auto py-20 px-5'>
-            <div className=''>
+            <div >
                 <h2 className='text-5xl font-bold'>Timeline</h2>
                 <select  className='mt-6 w-60 border border-gray-300 border- shadow py-2 rounded-sm text-[#64748B] ring-inset hover:cursor-pointer bg-white outline-0 '>
                     <option >Filter timeline</option>
