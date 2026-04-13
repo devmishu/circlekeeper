@@ -5,7 +5,7 @@ import profile from '../assets/Ellipse 1.png';
 
 const Home = () => {
     return (
-        <div className='min-h-screen max-w-7/12 mx-auto'>
+        <div className='min-h-screen max-w-325 mx-auto px-5'>
             <div className='flex flex-col justify-between items-center gap-4 mt-20'>
                 <h1 className='text-4xl text-center font-bold sm:text-5xl'>Friends to keep close in your life</h1>
                 <p className='text[#64748B] text-[16px] text-center text-gray-500 max-w-150'>Your personal shelf of meaningful connections. Browse, tend, and nurture the
