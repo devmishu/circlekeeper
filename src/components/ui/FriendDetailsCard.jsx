@@ -9,17 +9,27 @@ import { IoVideocamOutline } from 'react-icons/io5';
 import callIcon from '../../../public/image/call.png'
 import textIcon from '../../../public/image/text.png'
 import videoIcon from '../../../public/image/video.png'
+import { toast } from 'react-toastify';
 
 const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
-    const { id, name, } = selectedProduct;
+    const { id, name, days_since_contact: contact, goal, next_due_date: due } = selectedProduct;
 
     const updateCall = (id, name) => {
         setAction([...action, {
             type: 'call',
             name,
             date: new Date().toLocaleDateString(),
-            icon:callIcon,
+            icon: callIcon,
         }])
+        toast.success(`call by ${name}`, {
+            style: {
+                background: "#244d3f",
+                color: "#ffffff",
+                borderRadius: "5px",
+                padding: '0px 10px',
+
+            }
+        });
     }
 
     const updateText = (id, name) => {
@@ -27,8 +37,17 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
             type: 'text',
             name,
             date: new Date().toLocaleDateString(),
-            icon:textIcon,
+            icon: textIcon,
         }])
+        toast.success(`call by ${name}`, {
+            style: {
+                background: "#244d3f",
+                color: "#ffffff",
+                borderRadius: "5px",
+                padding: '0px 10px',
+
+            }
+        });
     }
 
     const updateVideo = (id, name) => {
@@ -36,9 +55,18 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
             type: 'video',
             name,
             date: new Date().toLocaleDateString(),
-            icon:videoIcon
+            icon: videoIcon
         }])
-    } 
+        toast.success(`call by ${name}`, {
+            style: {
+                background: "#244d3f",
+                color: "#ffffff",
+                borderRadius: "5px",
+                padding: '0px 10px',
+
+            }
+        });
+    }
 
 
     return (
@@ -76,15 +104,15 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className='py-9 text-center shadow rounded-sm'>
-                        <h2 className='text-3xl font-bold'>62</h2>
+                        <h2 className='text-3xl font-bold'>{contact}</h2>
                         <p className='text-[#64748B]'>Days Since Contact</p>
                     </div>
                     <div className='py-9  text-center shadow rounded-sm'>
-                        <h2 className='text-3xl font-bold'>30</h2>
+                        <h2 className='text-3xl font-bold'>{goal}</h2>
                         <p className='text-[#64748B]'>Goal (Days)</p>
                     </div>
                     <div className='py-9  text-center shadow rounded-sm'>
-                        <h2 className='text-3xl font-bold'>Feb 27, 2026</h2>
+                        <h2 className='text-3xl font-bold'>{due}</h2>
                         <p className='text-[#64748B]'>Next Due</p>
                     </div>
 

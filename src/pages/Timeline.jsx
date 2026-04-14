@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { ActionContext } from '../context/actioncontext/ActionContext';
 import ActionCard from '../components/ui/ActionCard';
+import Empty from '../components/ui/Empty';
 
 
 const Timeline = () => {
@@ -29,19 +30,22 @@ const Timeline = () => {
     return (
         <div className='min-h-screen max-w-325 mx-auto py-20 px-5'>
 
-
-
-            <div >
-                <h2 className='text-5xl font-bold'>Timeline</h2>
-                <select
-                    onChange={(e) => setFilterType(e.target.value)}
-                    className='mt-6 w-60 border border-gray-300 border- shadow py-2 rounded-sm text-[#64748B] ring-inset hover:cursor-pointer bg-white outline-0 '>
-                    <option >Filter timeline</option>
-                    <option value="call">Call</option>
-                    <option value="text">Text</option>
-                    <option value="video">Video</option>
-                </select>
-            </div>
+            {
+                action.length === 0 ? <Empty
+                    children='No activities recorded yet.'
+                /> :
+                    <div >
+                        <h2 className='text-5xl font-bold'>Timeline</h2>
+                        <select
+                            onChange={(e) => setFilterType(e.target.value)}
+                            className='mt-6 w-60 border border-gray-300 border- shadow py-2 rounded-sm text-[#64748B] ring-inset hover:cursor-pointer bg-white outline-0 '>
+                            <option >Filter timeline</option>
+                            <option value="call">Call</option>
+                            <option value="text">Text</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+            }
 
             {
                 filtredAction.map((actionData, ind) => <ActionCard
@@ -51,7 +55,6 @@ const Timeline = () => {
                     name={actionData.name}
                     date={actionData.date}
                 />)
-
             }
 
         </div>
