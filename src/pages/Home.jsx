@@ -1,10 +1,15 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import FriendCard from '../components/ui/FriendCard';
+import useFriends from '../hook/useFriends';
+import Spinner from '../components/ui/Spinner';
+import StatCards from '../components/ui/StatCards';
 
 
 
 const Home = () => {
+    const { friends, loading } = useFriends();
+
     return (
         <div className='min-h-screen max-w-325 mx-auto px-5'>
             <div className='flex flex-col justify-between items-center gap-4 mt-20'>
@@ -18,49 +23,32 @@ const Home = () => {
             </div>
 
             <div className='grid gap-7 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-10 border-b pb-10 border-gray-200'>
-                <div className='py-7 px-14 text-center shadow rounded-sm'>
-                    <h2 className='text-3xl font-bold'>10</h2>
-                    <p className='text-[#64748B]'>Topal Friends</p>
-                </div>
-                <div className='py-7 px-14 text-center shadow rounded-sm'>
-                    <h2 className='text-3xl font-bold'>10</h2>
-                    <p className='text-[#64748B]'>Topal Friends</p>
-                </div>
-                <div className='py-7 px-14 text-center shadow rounded-sm'>
-                    <h2 className='text-3xl font-bold'>10</h2>
-                    <p className='text-[#64748B]'>Topal Friends</p>
-                </div>
-                <div className='py-7 px-14 text-center shadow rounded-sm'>
-                    <h2 className='text-3xl font-bold'>10</h2>
-                    <p className='text-[#64748B]'>Topal Friends</p>
-                </div>
+                <StatCards value={friends.length} label="Total friends" />
+                <StatCards value={friends.length} label="Total friends" />
+                <StatCards value={friends.length} label="Total friends" />
+                <StatCards value={friends.length} label="Total friends" />
             </div>
 
             <div className='mt-10'>
                 <h2 className='text-2xl font-semibold'>Your Friends</h2>
-                <div className='grid gap-7  sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-3'>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                    <FriendCard/>
-                </div>
+                {
+                    loading ? <Spinner /> :
+                        <div className='grid gap-7  sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-3 mb-16'>
+                            {
+                                friends.map(friend => <FriendCard
+                                    key={friend.id}
+                                    friend={friend}
+                                    id={friend.id}
+                                    picture={friend.picture}
+                                    name={friend.name}
+                                    contactDays={friend.days_since_contact}
+                                    tags={friend.tags}
+                                    status={friend.status}
+
+                                />)
+                            }
+                        </div>
+                }
             </div>
         </div>
     );
