@@ -6,6 +6,26 @@ import { ImStatsDots } from 'react-icons/im';
 import { MdOutlineAccessTime } from 'react-icons/md';
 
 const Navbar = () => {
+    const menuList = <>
+        <Navmenu
+            icon={<BiHomeAlt2 className=' font-medium' />}
+            to='/'
+            children='Home' />
+
+        <Navmenu
+            icon={<MdOutlineAccessTime className=' font-medium' />}
+            to='/timeline'
+            children='Timeline' />
+
+        <Navmenu
+            icon={<ImStatsDots className=' font-medium' />}
+            to='/stats'
+            children='Stats' />
+        <Navmenu
+            icon={<ImStatsDots className=' font-medium' />}
+            to='/frienddeatails'
+            children='Friend Deatails' />
+    </>
     return (
         <div className='bg-base-100 shadow-sm'>
             <div className="navbar container mx-auto px-5 justify-between">
@@ -16,16 +36,8 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow items-start nav">
+                            {menuList}
                         </ul>
                     </div>
 
@@ -34,20 +46,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className='flex gap-4 justify-center items-center nav'>
-                        <Navmenu
-                            icon={<BiHomeAlt2 className=' font-medium' />}
-                            to='/'
-                            children='Home' />
-
-                        <Navmenu
-                            icon={<MdOutlineAccessTime className=' font-medium' />}
-                            to='/timeline'
-                            children='Timeline' />
-
-                        <Navmenu
-                            icon={<ImStatsDots className=' font-medium' />}
-                            to='/stats'
-                            children='Stats' />
+                        {menuList}
                     </ul>
                 </div>
             </div>
