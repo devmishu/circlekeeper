@@ -6,22 +6,22 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { TbPhoneCall } from 'react-icons/tb';
 import { BiMessageDots } from 'react-icons/bi';
 import { IoVideocamOutline } from 'react-icons/io5';
-import callIcon from '../../../public/image/call.png'
-import textIcon from '../../../public/image/text.png'
-import videoIcon from '../../../public/image/video.png'
+import callIcon from '/public/image/call.png'
+import textIcon from '/public/image/text.png'
+import videoIcon from '/public/image/video.png'
 import { toast } from 'react-toastify';
 
 const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
-    const { id, name, days_since_contact: contact, goal, next_due_date: due } = selectedProduct;
+    const { name, picture, tags, status, days_since_contact: contact, goal, next_due_date: due, email } = selectedProduct;
 
-    const updateCall = (id, name) => {
+    const updateCall = (name) => {
         setAction([...action, {
             type: 'call',
             name,
             date: new Date().toLocaleDateString(),
             icon: callIcon,
         }])
-        toast.success(`call by ${name}`, {
+        toast.success(`Called ${name} successfully.`, {
             style: {
                 background: "#244d3f",
                 color: "#ffffff",
@@ -32,14 +32,14 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
         });
     }
 
-    const updateText = (id, name) => {
+    const updateText = (name) => {
         setAction([...action, {
             type: 'text',
             name,
             date: new Date().toLocaleDateString(),
             icon: textIcon,
         }])
-        toast.success(`call by ${name}`, {
+        toast.success(`Sent a text to ${name} successfully.`, {
             style: {
                 background: "#244d3f",
                 color: "#ffffff",
@@ -50,14 +50,14 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
         });
     }
 
-    const updateVideo = (id, name) => {
+    const updateVideo = (name) => {
         setAction([...action, {
             type: 'video',
             name,
             date: new Date().toLocaleDateString(),
             icon: videoIcon
         }])
-        toast.success(`call by ${name}`, {
+        toast.success(`Video called ${name} successfully.`, {
             style: {
                 background: "#244d3f",
                 color: "#ffffff",
@@ -75,25 +75,27 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
 
             <div className="lg:col-span-4 space-y-4">
                 <FriendCard
-                    picture={selectedProduct.picture}
-                    name={selectedProduct.name}
-                    contactDays={selectedProduct.contactDays}
-                    tags={selectedProduct.tags}
-                    status={selectedProduct.status}
+                    picture={picture}
+                    name={name}
+                    contactDays={contact}
+                    tags={tags}
+                    status={status}
+                    email={email}
+                    emailLevel="Preferred:"
                 />
 
                 <Button
-                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 font-medium"}
+                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 font-medium hover:cursor-pointer"}
                     icon={<HiOutlineBellSnooze />}
                     children='Snooze 2 weeks' />
 
                 <Button
-                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 font-medium"}
+                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 font-medium hover:cursor-pointer"}
                     icon={<PiArchiveBold />}
                     children='Archive' />
 
                 <Button
-                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 text-red-500 font-medium"}
+                    className={"w-full bg-gray-100 p-3 rounded flex justify-center items-center gap-1 text-red-500 font-medium hover:cursor-pointer"}
                     icon={<RiDeleteBin6Line />}
                     children='Delete' />
 
@@ -122,10 +124,10 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
                 <div className="bg-white p-5 rounded shadow flex justify-between items-start">
                     <div>
                         <h3 className='text-[#244D3F] text-xl font-medium mb-3'>Relationship Goal</h3>
-                        <p className='text-[#64748B] text-18px] '>Connect every <span className='text-black font-medium'>30 days</span></p>
+                        <p className='text-[#64748B] text-18px] '>Connect every <span className='text-black font-medium'>{goal} days</span></p>
                     </div>
                     <Button
-                        className={"px-3 py-1 bg-gray-100 rounded   border border-gray-200 font-medium text-[14px] "}
+                        className={"px-3 py-1 bg-gray-100 rounded   border border-gray-200 font-medium text-[14px] hover:cursor-pointer "}
                         children='Edit' />
                 </div>
 
@@ -135,18 +137,18 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                         <Button
-                            onClick={() => updateCall(id, name)}
+                            onClick={() => updateCall(name)}
                             className={"p-4 bg-gray-100 rounded flex flex-col gap-2 justify-center items-center border border-gray-200 text-xl hover:cursor-pointer "}
                             icon={<TbPhoneCall />}
                             children='Call' />
                         <Button
-                            onClick={() => updateText(id, name)}
+                            onClick={() => updateText(name)}
                             className={"p-4 bg-gray-100 rounded flex flex-col gap-2 justify-center items-center border border-gray-200 text-xl hover:cursor-pointer "}
                             icon={<BiMessageDots />}
                             children='Text' />
 
                         <Button
-                            onClick={() => updateVideo(id, name)}
+                            onClick={() => updateVideo(name)}
                             className={"p-4 bg-gray-100 rounded flex flex-col gap-2 justify-center items-center border border-gray-200 text-xl hover:cursor-pointer "}
                             icon={<IoVideocamOutline />}
                             children='Video' />

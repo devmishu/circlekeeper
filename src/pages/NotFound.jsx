@@ -5,7 +5,7 @@ const NotFound = () => {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center py-20">
             <div className="mb-8">
-                {/* Simple Vector-style Icon representation */}
+            
                 <div className="text-9xl font-extrabold text-[#1B4332] opacity-10 leading-none">
                     404
                 </div>

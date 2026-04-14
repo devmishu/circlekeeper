@@ -10,8 +10,6 @@ const Stats = () => {
     const textData = action.filter(actionData => actionData.type === 'text');
     const videodata = action.filter(actionData => actionData.type === 'video');
 
-    console.log(callData.length);
-
     const data = [
         { name: 'Call', value: callData.length, fill: '#244d3f' },
         { name: 'Text', value: textData.length, fill: '#7f37f5' },

@@ -8,9 +8,6 @@ import { ActionContext } from '../context/actioncontext/ActionContext';
 const FriendDetails = () => {
     const { id } = useParams();
     const { action, setAction } = useContext(ActionContext);
-    console.log(action);
-
-
 
     const { friends, loading } = useFriends();
     const selectedProduct = friends.find(friend => friend.id === parseInt(id));

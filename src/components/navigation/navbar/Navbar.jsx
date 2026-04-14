@@ -4,6 +4,7 @@ import Navmenu from './Navmenu';
 import { BiHomeAlt2 } from 'react-icons/bi';
 import { ImStatsDots } from 'react-icons/im';
 import { MdOutlineAccessTime } from 'react-icons/md';
+import logo from '../../../assets/logo.png';
 
 const Navbar = () => {
     const menuList = <>
@@ -22,6 +23,7 @@ const Navbar = () => {
             to='/stats'
             children='Stats' />
     </>
+
     return (
         <div className='sticky top-0 z-50 bg-base-100 shadow-sm'>
             <div className="navbar container mx-auto px-5 justify-between">
@@ -37,7 +39,9 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <Link to="/" className=" text-2xl text-[#244D3F] font-bold"> CircleKeeper</Link>
+                    <Link to="/" >
+                        <img src={logo} alt="" />
+                    </Link>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">

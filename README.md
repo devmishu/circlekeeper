@@ -1,16 +1,117 @@
-# React + Vite
+# 💙 KeenKeeper — Keep Your Friendships Alive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
 
-Currently, two official plugins are available:
+KeenKeeper is a modern and responsive friendship management web app that helps users stay connected with their friends. It allows users to track interactions, set communication goals, and visualize relationship activity through an intuitive interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project focuses on improving real-life connections by reminding users to maintain regular contact with their friends.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🔗 [Live Site Link Here]
+🔗 [GitHub Repository Link Here]
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Technologies Used
+
+* ⚛️ React.js
+* 🧭 React Router DOM
+* 🎨 Tailwind CSS
+* 📊 Recharts
+* 🔔 React Toastify
+* 📦 JSON (Local Data)
+
+---
+
+## ✨ Key Features
+
+### 👥 Smart Friend Management
+
+* Add and view multiple friend profiles with detailed information
+* Track days since last contact
+* Categorize friends using tags like *work*, *college*, etc.
+
+### ⚡ Quick Interaction Logging
+
+* Instantly log Call, Text, or Video interactions
+* Automatically updates timeline with real-time data
+* Toast notifications for user feedback
+
+### 📊 Visual Analytics Dashboard
+
+* Interactive Pie Chart showing communication patterns
+* Helps users understand their interaction habits
+* Built using Recharts for clean visualization
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── components/
+├── pages/
+├── hooks/
+├── context/
+├── data/
+├── routes/
+└── utils/
+```
+
+---
+
+## 📱 Responsiveness
+
+The application is fully responsive and works seamlessly across:
+
+* 📱 Mobile Devices
+* 📲 Tablets
+* 💻 Desktops
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/keenkeeper.git
+
+# Navigate to the project folder
+cd keenkeeper
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+---
+
+## 🔥 Future Improvements
+
+* 🔍 Search & filter friends and timeline
+* 📅 Sorting timeline by newest/oldest
+* ☁️ Backend integration for persistent data
+
+---
+
+## 🙌 Acknowledgements
+
+* UI Design inspired by Figma layout
+* Icons from Lucide React
+* Charts powered by Recharts
+
+---
+
+## 📧 Contact
+
+If you have any suggestions or feedback, feel free to reach out!
+
+---
+
+⭐ Don’t forget to give this project a star if you like it!
