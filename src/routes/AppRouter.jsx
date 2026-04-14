@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Timeline from "../pages/Timeline";
 import Stats from "../pages/Stats";
 import FriendDetails from "../pages/FriendDetails";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,6 @@ export const router = createBrowserRouter([
                 Component: FriendDetails
             }
         ],
-        errorElement: <h2>404</h2>,
+        errorElement: <NotFound/>,
     }
 ]);
