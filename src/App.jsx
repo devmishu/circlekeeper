@@ -1,11 +1,15 @@
 import { RouterProvider } from "react-router"
 import { router } from "./routes/AppRouter"
+import ActionPrvider from "./context/actioncontext/ActionProvider"
+
 
 
 function App() {
   return (
 
-    <RouterProvider router={router}/>
+    <ActionPrvider>
+      <RouterProvider router={router} />
+    </ActionPrvider>
 
   )
 }

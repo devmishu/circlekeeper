@@ -21,10 +21,6 @@ const Navbar = () => {
             icon={<ImStatsDots className=' font-medium' />}
             to='/stats'
             children='Stats' />
-        <Navmenu
-            icon={<ImStatsDots className=' font-medium' />}
-            to='/frienddeatails'
-            children='Friend Deatails' />
     </>
     return (
         <div className='bg-base-100 shadow-sm'>

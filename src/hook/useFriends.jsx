@@ -14,6 +14,7 @@ const useFriends = () => {
                 setFriends(data);
                 setLoading(false);
             }, 1000);
+
         }
         fetchFriends();
     }, []);
