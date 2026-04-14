@@ -33,7 +33,7 @@ const Home = () => {
                 <h2 className='text-2xl font-semibold'>Your Friends</h2>
                 {
                     loading ? <Spinner /> :
-                        <div className='grid gap-7  sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-3 mb-16'>
+                        <div className='grid gap-7  sm:grid-cols-2 lg:grid-cols-4  mt-3 mb-16'>
                             {
                                 friends.map(friend => <FriendCard
                                     key={friend.id}

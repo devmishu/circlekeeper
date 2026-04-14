@@ -23,7 +23,7 @@ const Navbar = () => {
             children='Stats' />
     </>
     return (
-        <div className='bg-base-100 shadow-sm'>
+        <div className='sticky top-0 z-50 bg-base-100 shadow-sm'>
             <div className="navbar container mx-auto px-5 justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
