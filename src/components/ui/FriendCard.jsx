@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-const FriendCard = ({ picture, name, contactDays, tags, status, emailLevel, email }) => {
+const FriendCard = ({ picture, name, contactDays, tags, status, bio, emailLevel, email }) => {
     const overdeu = status === 'overdue' && 'bg-[#EF4444] text-white';
     const almost_due = status === 'almost_due' && 'bg-[#EFAD44] text-white';
     const on_track = status === 'on_track' && 'bg-[#244D3F] text-white';
@@ -18,7 +18,9 @@ const FriendCard = ({ picture, name, contactDays, tags, status, emailLevel, emai
 
             </div>
             <div>
-                <p className='text-[#64748B] font-medium'>"Former colleague, great mentor"</p>
+                {
+                    bio && <p className='text-[#64748B] font-medium'>"{bio}"</p>
+                }
                 <p className='text-[#64748B]'>{emailLevel} {email}</p>
             </div>
             <p

@@ -24,17 +24,30 @@ const Timeline = () => {
                 const videoFiltered = action.filter(a => a.type === 'video');
                 setFiltredAction(videoFiltered);
             }
+            else if (filterType === 'newest') {
+                const newestDateSort = [...action].sort(
+                    (a, b) => new Date(b.date) - new Date(a.date)
+                );
+                setFiltredAction(newestDateSort);
+                console.log(newestDateSort);
+            }
+            else if (filterType === 'oldest') {
+                const oldestDateSort = [...action].sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                );
+                setFiltredAction(oldestDateSort);
+                console.log(oldestDateSort);
+            }
         }
     }, [filterType, action]);
 
-    // const handleSearch = (e) => {
-    //     const value = e.target.value.toLowerCase().trim();
+    const handleSearch = (e) => {
+        const value = e.toLowerCase()
 
-    //     const sheredValue = action.include(sheVal => sheVal.name.toLowerCase() === value );
-    //     setFiltredAction(sheredValue);
-        
-    // }
-   
+        const sheredValue = action.filter(item => item.name.toLowerCase().includes(value));
+        setFiltredAction(sheredValue);
+    }
+
 
     return (
         <div className='min-h-screen max-w-325 mx-auto py-20 px-5'>
@@ -53,14 +66,16 @@ const Timeline = () => {
                                 <option value="call">Call</option>
                                 <option value="text">Text</option>
                                 <option value="video">Video</option>
+                                <option value="newest">Newest Date First</option>
+                                <option value="oldest">Oldest Date First</option>
                             </select>
 
-                            {/* <div className='w-full flex justify-start gap-2 items-center mt-6 px-3 border border-gray-300 border- shadow py-2 rounded-sm text-[#64748B] ring-inset  bg-white  '>
+                            <div className='w-full flex justify-start gap-2 items-center mt-6 px-3 border border-gray-300 border- shadow py-2 rounded-sm text-[#64748B] ring-inset  bg-white  '>
                                 <IoIosSearch />
                                 <input className='w-full outline-0'
-                                    onChange={handleSearch}
+                                    onChange={(e) => handleSearch(e.target.value)}
                                     type="text" placeholder='Search friends' />
-                            </div> */}
+                            </div>
                         </div>
                     </div>
             }

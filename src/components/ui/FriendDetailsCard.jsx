@@ -12,13 +12,22 @@ import videoIcon from '/public/image/video.png'
 import { toast } from 'react-toastify';
 
 const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
-    const { name, picture, tags, status, days_since_contact: contact, goal, next_due_date: due, email } = selectedProduct;
+    const { name, picture, tags, status, days_since_contact: contact, goal, next_due_date: due, email, bio } = selectedProduct;
+
+
+    const date = new Date();
+
+    const formatted = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
 
     const updateCall = (name) => {
         setAction([...action, {
             type: 'call',
             name,
-            date: new Date().toLocaleDateString(),
+            date: formatted,
             icon: callIcon,
         }])
         toast.success(`Called ${name} successfully.`, {
@@ -36,7 +45,7 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
         setAction([...action, {
             type: 'text',
             name,
-            date: new Date().toLocaleDateString(),
+            date: formatted,
             icon: textIcon,
         }])
         toast.success(`Sent a text to ${name} successfully.`, {
@@ -54,7 +63,7 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
         setAction([...action, {
             type: 'video',
             name,
-            date: new Date().toLocaleDateString(),
+            date: formatted,
             icon: videoIcon
         }])
         toast.success(`Video called ${name} successfully.`, {
@@ -81,6 +90,7 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
                     tags={tags}
                     status={status}
                     email={email}
+                    bio={bio}
                     emailLevel="Preferred:"
                 />
 
@@ -162,3 +172,5 @@ const FriendDetailsCard = ({ selectedProduct, action, setAction }) => {
 };
 
 export default FriendDetailsCard;
+
+// new Date().toLocaleDateString(),
