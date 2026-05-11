@@ -9,7 +9,13 @@ const Footer = () => {
         <div className='bg-[#244D3F] pt-20 pb-7 '>
             <div className='container mx-auto px-5 space-y-5'>
                 <div className=' flex flex-col justify-center items-center'>
-                    <img src={footerLogo} alt="footer logo" className='w-50 sm:w-90' />
+                    {/* <img src={footerLogo} alt="footer logo" className='w-50 sm:w-90' /> */}
+
+
+                    <Link to="/" >
+                        <h2 className='text-white text-4xl sm:text-6xl font-bold'>CircleKeeper</h2>
+                    </Link>
+
                     <p className='text-[#FFFFFF] text-center'>Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
                 </div>
 

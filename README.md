@@ -8,6 +8,10 @@ This project focuses on improving real-life connections by reminding users to ma
 
 ---
 
+## 📸 Project Screenshot
+
+![Circle Keeper Screenshot](./public/image/project-preview.webp)
+
 ## 🚀 Live Demo
 
 🔗 https://circlekeeper.netlify.app
@@ -43,6 +47,41 @@ The application is fully responsive and works seamlessly across:
 - 💻 Desktops
 
 ---
+
+## 📦 NPM Packages Used
+
+```bash
+react
+react-dom
+tailwindcss
+daisyui
+react-spinners
+react-router
+react-icons
+react-toastify
+recharts
+```
+
+## 🚀 Run This Project Locally
+
+### Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd project-name
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Development Server
+
+```bash
+npm run dev
+```
 
 ## 🔥 Future Improvements
 

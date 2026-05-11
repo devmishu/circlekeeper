@@ -40,7 +40,8 @@ const Navbar = () => {
                     </div>
 
                     <Link to="/" >
-                        <img src={logo} alt="" />
+                        <h2 className='text-[#1f2937] text-3xl font-bold'>Circle<span className='text-[#254d3f]'>Keeper</span></h2>
+                        {/* <img src={logo} alt="" /> */}
                     </Link>
 
                 </div>
